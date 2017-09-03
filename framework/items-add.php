@@ -15,6 +15,21 @@
 	</head>
 	<body>
 		<div class="container">
+
+			<?php
+				require_once ("connect.php");
+				$connect = @mysqli_connect($host, $user, $pwd, $sql_db);
+
+				if ($connect)
+				{
+					$sql_table="items";
+				}
+				else
+				{
+					echo "<p>Failed to connect to the database $sql_db</p>";
+				}
+			?>
+
 			<div class="row">
 				<div class="col-sm-10">
 					<h1>Company Logo</h1>
@@ -39,7 +54,6 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="items.html">Items</a></li>
-							<li><a href="items-add.php">Add Item</a></li>
 							<li><a href="sales.html">Sales</a></li>
 							<li><a href="report.html">Report</a></li>
 						</ul>
@@ -47,33 +61,38 @@
 				</div>
 				<div class="col-sm-8">
 					<strong>Middle Content: Item screen, display item stock etc</strong>
-					<hr />
-						<div class="table-responsive">
-							<table class="table table-striped table-hover" >
-								<thead>
-									<tr>
-										<th scope="col" id="thCode">Item Code</th>
-										<th scope="col" id="thName">Item Name</th>
-										<th scope="col" id="thDesc">Desc</th>
-										<th scope="col" id="thQuant">Quant</th>
-										<th scope="col" id="thPrice">Price</th>
-										<th></th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody >
-									<tr>
-										<td headers="thCode">1</td>
-										<td headers="thName">Panadol</td>
-										<td headers="thDesc">Provides fast, effective temporary relief of pain and discomfort </td>
-										<td headers="thQuant">100</td>
-										<td headers="thPrice">$5</td>
-										<td><a>Modify</a></td>
-										<td><a>Delete</a></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+					<hr>
+					<form id="itemAddForm" method="post" action="add_item.php">
+						<p>
+							<label for="itemName">Name:</label>
+							<input type="text" name="itemName" id="itemName" />
+						</p>
+						<p>
+							<label for="itemType">Type:</label>
+							<select name="itemType" id="itemType">
+								<option value="def"></option>
+								<option value="baby">Baby Care</option>
+								<option value="cosmetics">Cosmetics</option>
+								<option value="medicine">Medicine</option>
+								<option value="purfume">Purfume</option>
+								<option value="vitamins">Vitamins</option>
+							</select>
+						</p>
+						<p>
+							<label for="itemPrice">Price:</label>
+							<input type="text" name="itemPrice" id="itemPrice" />
+						</p>
+						<p>
+							<label for="itemStock">Stock:</label>
+							<input type="text" name="itemStock" id="itemStock" />
+						</p>
+						<p>
+							<label for="itemDesc">Description:</label>
+							<input type="text" name="itemDesc" id="itemDesc" />
+						</p>
+						<input type="submit" id="subItemAdd" value="Submit" />
+						<input type="reset" id="resItemAdd" value="Clear Form" />
+					</form>
 				</div>
 			</div>
 		</div>
