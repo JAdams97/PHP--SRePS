@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>People Health Pharmacy | Add Item</title>
+		<title>People Health Pharmacy | Add Sale</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<!-- Bootstrap -->
@@ -22,53 +22,52 @@
 
 				if ($connect)
 				{
-					$sql_table="items";
+					$sql_table="sales";
 					$error_msg = "";
 
-					$itemname = $_POST["itemName"];
-					$itemtype = $_POST["itemType"];
-					$itemprice = $_POST["itemPrice"];
-					$itemstock = $_POST["itemStock"];
-					$itemdesc = $_POST["itemDesc"];
+					$saleitem = $_POST["saleItem"];
+					$saledate = $_POST["saleDate"];
+					$salequantity = $_POST["saleQuantity"];
+					$salecost = $_POST["saleCost"];
 
-					if ($itemname == "")
+					if ($saleitem == "")
 					{
 						$error_msg .= "<p>Item name cannot be blank.</p>";
 					}
 
-					if ($itemtype == "def")
+					if ($saledate == "")
 					{
-						$error_msg .= "<p>Item type cannot be blank.</p>";
+						$error_msg .= "<p>Sale date cannot be blank.</p>";
 					}
 
-					if ($itemprice < 0.00)
+					if ($salequantity <= 0)
 					{
-						$error_msg .= "<p>Item price must be greater than $0.00.</p>";
+						$error_msg .= "<p>Sale quantity must be more than 0.</p>";
 					}
-					else if ($itemprice == "")
+					else if ($salequantity == "")
 					{
-						$error_msg .= "<p>Item price cannot be blank.</p>";
+						$error_msg .= "<p>Sale quantity cannot be blank.</p>";
 					}
 
-					if ($itemstock < 0)
+					if ($salecost < 0.00)
 					{
-						$error_msg .= "<p>Item stock must be 0 or more</p>";
+						$error_msg .= "<p>Sale cost must be more than $0.00</p>";
 					}
-					else if ($itemstock == "")
+					else if ($salecost == "")
 					{
-						$error_msg .= "<p>Item stock cannot be blank.</p>";
+						$error_msg .= "<p>Sale cost cannot be blank.</p>";
 					}
 
 					$query = "
 					INSERT INTO $sql_table
-					VALUES (DEFAULT, '$itemname', '$itemtype', '$itemprice', '$itemstock', '$itemdesc')";
+					VALUES (DEFAULT, '$saleitem', '$saledate', '$salequantity', '$salecost', DEFAULT)";
 
 					$result = NULL;
 
 					if ($error_msg != "")
 					{
 						echo "<p>$error_msg</p>";
-						echo "<p><a href=\"items-add.php\">Return to add items form</a></p>";
+						echo "<p><a href=\"sales-add.php\">Return to add sales form</a></p>";
 					}
 					else
 					{
@@ -76,8 +75,8 @@
 
 						if ($result)
 						{
-							echo "<p>Successfully added an item!</p>";
-							echo "<p><a href=\"items-add.php\">Return to add items form</a></p>";
+							echo "<p>Successfully added a sale!</p>";
+							echo "<p><a href=\"sales-add.php\">Return to add sales form</a></p>";
 						}
 						else
 						{

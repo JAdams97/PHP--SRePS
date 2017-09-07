@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>People Health Pharmacy | Home</title>
+		<title>People Health Pharmacy | Add Item</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<!-- Bootstrap -->
@@ -18,15 +18,16 @@
 
 			<?php
 				require_once ("connect.php");
-				$connect = @mysqli_connect($host, $user, $pwd, $sql_db);
+				$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
-				if ($connect)
+				if ($conn)
 				{
 					$sql_table="items";
 				}
 				else
 				{
 					echo "<p>Failed to connect to the database $sql_db</p>";
+					echo "<p>Connection error: $conn->connect_error</p>";
 				}
 			?>
 
@@ -53,7 +54,7 @@
 						<strong>Dashboard (aka nav bar)</strong>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="items.html">Items</a></li>
+							<li><a href="items.php">Items</a></li>
 							<li><a href="sales.html">Sales</a></li>
 							<li><a href="report.html">Report</a></li>
 						</ul>
@@ -61,7 +62,7 @@
 				</div>
 				<div class="col-sm-8">
 					<strong>Middle Content: Item screen, display item stock etc</strong>
-					<hr>
+					<hr />
 					<form id="itemAddForm" method="post" action="add_item.php">
 						<p>
 							<label for="itemName">Name:</label>

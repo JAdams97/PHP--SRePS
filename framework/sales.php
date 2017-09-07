@@ -1,7 +1,26 @@
 <!DOCTYPE html>
+
+<?php
+	require_once ("connect.php");
+	$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+
+	if ($conn)
+	{
+		$sql_table="sales";
+	}
+	else
+	{
+		echo "<p>Failed to connect to the database $sql_db</p>";
+		echo "<p>Connection error: $conn->connect_error</p>";
+	}
+
+	$query = "SELECT * FROM $sql_table";
+	$result = mysqli_query($conn, $query);
+?>
+
 <html lang="en">
 	<head>
-		<title>People Health Pharmacy | Home</title>
+		<title>People Health Pharmacy | Sales</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<!-- Bootstrap -->
@@ -38,8 +57,9 @@
 						<strong>Dashboard (aka nav bar)</strong>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="items.html">Items</a></li>
-							<li><a href="sales.html">Sales</a></li>
+							<li><a href="items.php">Items</a></li>
+							<li><a href="sales.php">Sales</a></li>
+							<li><a href="sales-add.php">Add Sales</a></li>
 							<li><a href="report.html">Report</a></li>
 						</ul>
 					</div>
@@ -51,23 +71,19 @@
 							<table class="table table-striped table-hover" >
 								<thead>
 									<tr>
-										<th scope="col" id="thSaleID">Sale ID</th>
-										<th scope="col" id="thInvoiceID">Invoice ID</th>
-										<th scope="col" id="thSaleDate">Sale Date</th>
-										<th scope="col" id="thSalePrice">Total Price</th>
-										<th></th>
-										<th></th>
+										<th scope="col" id="saleID">Sale ID</th>
+										<th scope="col" id="saleItem">Item ID</th>
+										<th scope="col" id="saleDate">Sale Date</th>
+										<th scope="col" id="saleQuantity">Item Quantity</th>
+										<th scope="col" id="saleCost">Total Cost</th>
+										<th scope="col" id="saleStatus">Status</th>
 									</tr>
 								</thead>
-								<tbody >
-									<tr>
-										<td headers="thSaleID">1</td>
-										<td headers="thInvoiceID">10001</td>
-										<td headers="thSaleDate">2/09/2017</td>
-										<td headers="thSalePrice">$100</td>
-										<td><a>Modify</a></td>
-										<td><a>Delete</a></td>
-									</tr>
+								<tbody>
+									<?php
+										while($row = mysqli_fetch_array($result)) {
+										echo "<tr><td>", $row["saleID"], "</td><td>", $row["itemID"], "</td><td>", $row["saleDate"], "</td><td>", $row["saleQuantity"], "</td><td>", $row["saleCost"], "</td><td>", $row["saleStatus"], "</td></tr>";
+						}			?>
 								</tbody>
 							</table>
 						</div>
