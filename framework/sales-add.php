@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>People Health Pharmacy | Home</title>
+		<title>People Health Pharmacy | Add Sale</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<!-- Bootstrap -->
@@ -39,41 +39,35 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="items.html">Items</a></li>
-							<li><a href="items-add.php">Add Item</a></li>
 							<li><a href="sales.html">Sales</a></li>
 							<li><a href="report.html">Report</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-sm-8">
-					<strong>Middle Content: Item screen, display item stock etc</strong>
-					<hr />
-						<div class="table-responsive">
-							<table class="table table-striped table-hover" >
-								<thead>
-									<tr>
-										<th scope="col" id="thCode">Item Code</th>
-										<th scope="col" id="thName">Item Name</th>
-										<th scope="col" id="thDesc">Desc</th>
-										<th scope="col" id="thQuant">Quant</th>
-										<th scope="col" id="thPrice">Price</th>
-										<th></th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody >
-									<tr>
-										<td headers="thCode">1</td>
-										<td headers="thName">Panadol</td>
-										<td headers="thDesc">Provides fast, effective temporary relief of pain and discomfort </td>
-										<td headers="thQuant">100</td>
-										<td headers="thPrice">$5</td>
-										<td><a>Modify</a></td>
-										<td><a>Delete</a></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+					<strong>Middle Content: Sale screen, add/delete/modify sales record</strong>
+					<hr>
+					<form id="saleAddForm" method="post" action="add_sale.php">
+						<p>
+							<label for="saleItem">Item Name:</label>
+							<input type="text" name="saleItem" id="saleItem" />
+						</p>
+						<p>
+							<label for="saleDate">Date:</label>
+							<input type="date" name="saleDate" id="saleDate" />
+						</p>
+						<p>
+							<label for="saleQuantity">Item Quantity:</label>
+							<input type="text" name="saleQuantity" id="saleQuantity" />
+						</p>
+						<p>
+							<label for="saleCost">Cost:</label>
+							<input type="text" name="saleCost" id="saleCost" />
+						</p>
+
+						<input type="submit" id="subSaleAdd" value="Submit" />
+						<input type="reset" id="resSaleAdd" value="Clear Form" />
+					</form>
 				</div>
 			</div>
 		</div>
