@@ -14,15 +14,16 @@
 		echo "<p>Connection error: $conn->connect_error</p>";
 	}
 
-	$query = "SELECT * FROM $sql_table";
+	$query = "SELECT * FROM $sql_table WHERE saleStatus = 1";
 	$result = mysqli_query($conn, $query);
 ?>
 
-<html lang="en">
+	<html lang="en">
+
 	<head>
 		<title>People Health Pharmacy | Sales</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" />
 		<!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -32,6 +33,7 @@
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
 	</head>
+
 	<body>
 		<div class="container">
 			<div class="row">
@@ -51,8 +53,8 @@
 				<!-- For now using <br> tag to seperate each section. Use CSS style instead  -->
 				<br><br>
 				<div class="col-sm-3">
-				<!-- This will be the dashboard which contains links to the other pages -->
-				<!-- will be styled -->
+					<!-- This will be the dashboard which contains links to the other pages -->
+					<!-- will be styled -->
 					<div class="dashboard">
 						<strong>Dashboard (aka nav bar)</strong>
 						<ul>
@@ -67,26 +69,26 @@
 				<div class="col-sm-8">
 					<strong>Middle Content: Sale screen, add/delete/modify sales record</strong>
 					<hr>
-						<div class="table-responsive">
-							<table class="table table-striped table-hover" >
-								<thead>
-									<tr>
-										<th scope="col" id="saleID">Sale ID</th>
-										<th scope="col" id="saleItem">Item ID</th>
-										<th scope="col" id="saleDate">Sale Date</th>
-										<th scope="col" id="saleQuantity">Item Quantity</th>
-										<th scope="col" id="saleCost">Total Cost</th>
-										<th scope="col" id="saleStatus">Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
+					<div class="table-responsive">
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th scope="col" id="saleID">Sale ID</th>
+									<th scope="col" id="saleItem">Item ID</th>
+									<th scope="col" id="saleDate">Sale Date</th>
+									<th scope="col" id="saleQuantity">Item Quantity</th>
+									<th scope="col" id="saleCost">Total Cost</th>
+									<th scope="col" id="saleStatus">Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
 										while($row = mysqli_fetch_array($result)) {
-										echo "<tr><td>", $row["saleID"], "</td><td>", $row["itemID"], "</td><td>", $row["saleDate"], "</td><td>", $row["saleQuantity"], "</td><td>", $row["saleCost"], "</td><td>", $row["saleStatus"], "</td></tr>";
+										echo "<tr><td>", $row["saleID"], "</td><td>", $row["itemID"], "</td><td>", $row["saleDate"], "</td><td>", $row["saleQuantity"], "</td><td>", $row["saleCost"], "</td><td>", $row["saleStatus"], "</td><td><a href=\"delete_sale.php?id=", $row['saleID'], "\">Delete</a></td></tr>";
 						}			?>
-								</tbody>
-							</table>
-						</div>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -98,4 +100,5 @@
 		<!-- Bootstrap plug-in file -->
 		<script src="js/bootstrap.min.js"></script>
 	</body>
-</html>
+
+	</html>
