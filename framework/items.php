@@ -65,14 +65,14 @@
 					<strong>Middle Content: Item screen, display item stock etc</strong>
 					<hr />
 					<?php
-						$query = "SELECT * FROM $sql_table";
+						$query = "SELECT * FROM $sql_table WHERE itemStatus = 1";
 						$result = mysqli_query($conn, $query);
 
 						echo "<div class=\"row\"><table class=\"table\">";
 						echo "<tr><th>ID</th><th>Name</th><th>Type</th><th>Price</th><th>Stock</th><th>Description</th></tr>";
 
 						while($row = mysqli_fetch_array($result)) {
-								echo "<tr><td>", $row["itemID"], "</td><td>", $row["itemName"], "</td><td>", $row["itemType"], "</td><td>", $row["itemPrice"], "</td><td>", $row["itemStock"], "</td><td>", $row["itemDescription"], "</td></tr>";
+								echo "<tr><td>", $row["itemID"], "</td><td>", $row["itemName"], "</td><td>", $row["itemType"], "</td><td>", $row["itemPrice"], "</td><td>", $row["itemStock"], "</td><td>", $row["itemDescription"], "</td><td><a href=\"delete_item.php?id=", $row['itemID'], "\">Delete</a></td></tr>";
 						}
 
 						echo"</table></div>";

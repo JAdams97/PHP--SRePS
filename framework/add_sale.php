@@ -28,7 +28,6 @@
 					$saleitem = $_POST["saleItem"];
 					$saledate = $_POST["saleDate"];
 					$salequantity = $_POST["saleQuantity"];
-					$salecost = $_POST["saleCost"];
 
 					if ($saleitem == "")
 					{
@@ -49,18 +48,9 @@
 						$error_msg .= "<p>Sale quantity cannot be blank.</p>";
 					}
 
-					if ($salecost < 0.00)
-					{
-						$error_msg .= "<p>Sale cost must be more than $0.00</p>";
-					}
-					else if ($salecost == "")
-					{
-						$error_msg .= "<p>Sale cost cannot be blank.</p>";
-					}
-
 					$query = "
 					INSERT INTO $sql_table
-					VALUES (DEFAULT, '$saleitem', '$saledate', '$salequantity', '$salecost', DEFAULT)";
+					VALUES (DEFAULT, '$saleitem', '$saledate', '$salequantity', , DEFAULT)";
 
 					$result = NULL;
 

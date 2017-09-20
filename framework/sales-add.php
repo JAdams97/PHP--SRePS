@@ -38,8 +38,8 @@
 						<strong>Dashboard (aka nav bar)</strong>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="items.html">Items</a></li>
-							<li><a href="sales.html">Sales</a></li>
+							<li><a href="items.php">Items</a></li>
+							<li><a href="sales.php">Sales</a></li>
 							<li><a href="report.html">Report</a></li>
 						</ul>
 					</div>
@@ -49,7 +49,7 @@
 					<hr>
 					<form id="saleAddForm" method="post" action="add_sale.php">
 						<p>
-							<label for="saleItem">Item Name:</label>
+							<label for="saleItem">Item ID:</label>
 							<input type="text" name="saleItem" id="saleItem" />
 						</p>
 						<p>
@@ -59,10 +59,6 @@
 						<p>
 							<label for="saleQuantity">Item Quantity:</label>
 							<input type="text" name="saleQuantity" id="saleQuantity" />
-						</p>
-						<p>
-							<label for="saleCost">Cost:</label>
-							<input type="text" name="saleCost" id="saleCost" />
 						</p>
 
 						<input type="submit" id="subSaleAdd" value="Submit" />

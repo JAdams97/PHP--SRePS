@@ -55,7 +55,7 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="items.php">Items</a></li>
-							<li><a href="sales.html">Sales</a></li>
+							<li><a href="sales.php">Sales</a></li>
 							<li><a href="report.html">Report</a></li>
 						</ul>
 					</div>
