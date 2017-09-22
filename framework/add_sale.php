@@ -50,7 +50,7 @@
 
 					$query = "
 					INSERT INTO $sql_table
-					VALUES (DEFAULT, '$saleitem', '$saledate', '$salequantity', , DEFAULT)";
+					VALUES (DEFAULT, '$saleitem', '$saledate', '$salequantity', 0, DEFAULT)";
 
 					$result = NULL;
 
@@ -83,7 +83,7 @@
 
 				mysqli_close($connect);
 			?>
-
+		</div>
 		<!-- AngularJS v1.6.3 -->
 		<script src="js/angular.min.js"></script>
 		<!-- jQuery - required for Bootstrap's JavaScript plugins) -->

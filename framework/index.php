@@ -21,7 +21,7 @@
 			<!-- style the company logo to be center of page?-->
 			<br>
 			<br>
-			<form action="index.html">
+			<form action="main.php">
 				<fieldset>
 					<legend>Login Information</legend>
 					<p>
@@ -37,7 +37,7 @@
 			</form>
 			<br>
 			<br>
-			<a href="aboutus.html">About Us</a> | <a href="contactus.html">Contact Us</a>
+			<a href="aboutus.php">About Us</a> | <a href="contactus.php">Contact Us</a>
 		</div>
 		<!-- AngularJS v1.6.3 -->
 		<script src="js/angular.min.js"></script>

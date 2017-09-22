@@ -43,7 +43,7 @@
 				</div>
 				<br>
 				<div class="col-sm-2">
-					<form action="main.html">
+					<form action="index.php">
 						<button type="submit">Logout</button>
 					</form>
 
@@ -58,11 +58,11 @@
 					<div class="dashboard">
 						<strong>Dashboard (aka nav bar)</strong>
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="main.php">Home</a></li>
 							<li><a href="items.php">Items</a></li>
 							<li><a href="sales.php">Sales</a></li>
 							<li><a href="sales-add.php">Add Sales</a></li>
-							<li><a href="report.html">Report</a></li>
+							<li><a href="report.php">Report</a></li>
 						</ul>
 					</div>
 				</div>
@@ -79,13 +79,16 @@
 									<th scope="col" id="saleQuantity">Item Quantity</th>
 									<th scope="col" id="saleCost">Total Cost</th>
 									<th scope="col" id="saleStatus">Status</th>
+									<th scope="col" id="saleManage">Manage</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php
-										while($row = mysqli_fetch_array($result)) {
+									while($row = mysqli_fetch_array($result))
+									{
 										echo "<tr><td>", $row["saleID"], "</td><td>", $row["itemID"], "</td><td>", $row["saleDate"], "</td><td>", $row["saleQuantity"], "</td><td>", $row["saleCost"], "</td><td>", $row["saleStatus"], "</td><td><a href=\"delete_sale.php?id=", $row['saleID'], "\">Delete</a></td></tr>";
-						}			?>
+									}
+								?>
 							</tbody>
 						</table>
 					</div>
