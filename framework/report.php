@@ -22,7 +22,7 @@
 				</div>
 				<br>
 				<div class="col-sm-2">
-					<form action="main.html">
+					<form action="index.php">
 						<button type="submit">Logout</button>
 					</form>
 
@@ -37,10 +37,10 @@
 					<div class="dashboard">
 						<strong>Dashboard (aka nav bar)</strong>
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="main.php">Home</a></li>
 							<li><a href="items.php">Items</a></li>
-							<li><a href="sales.html">Sales</a></li>
-							<li><a href="report.html">Report</a></li>
+							<li><a href="sales.php">Sales</a></li>
+							<li><a href="report.php">Report</a></li>
 						</ul>
 					</div>
 				</div>

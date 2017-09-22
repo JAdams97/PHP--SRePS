@@ -1,3 +1,21 @@
+<?php
+	require_once ("connect.php");
+	$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+
+	if ($conn)
+	{
+		$sql_table="items";
+	}
+	else
+	{
+		echo "<p>Failed to connect to the database $sql_db</p>";
+		echo "<p>Connection error: $conn->connect_error</p>";
+	}
+
+	$query = "SELECT * FROM $sql_table WHERE itemStatus = 1";
+	$result = mysqli_query($conn, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -15,22 +33,6 @@
 	</head>
 	<body>
 		<div class="container">
-
-			<?php
-				require_once ("connect.php");
-				$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-
-				if ($conn)
-				{
-					$sql_table="items";
-				}
-				else
-				{
-					echo "<p>Failed to connect to the database $sql_db</p>";
-					echo "<p>Connection error: $conn->connect_error</p>";
-				}
-			?>
-
 			<div class="row">
 				<div class="col-sm-10">
 					<h1>Company Logo</h1>
@@ -38,7 +40,7 @@
 				</div>
 				<br>
 				<div class="col-sm-2">
-					<form action="main.html">
+					<form action="index.php">
 						<button type="submit">Logout</button>
 					</form>
 
@@ -53,30 +55,40 @@
 					<div class="dashboard">
 						<strong>Dashboard (aka nav bar)</strong>
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="main.php">Home</a></li>
 							<li><a href="items.php">Items</a></li>
 							<li><a href="items-add.php">Add Item</a></li>
-							<li><a href="sales.html">Sales</a></li>
-							<li><a href="report.html">Report</a></li>
+							<li><a href="sales.php">Sales</a></li>
+							<li><a href="report.php">Report</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-sm-8">
 					<strong>Middle Content: Item screen, display item stock etc</strong>
 					<hr />
-					<?php
-						$query = "SELECT * FROM $sql_table WHERE itemStatus = 1";
-						$result = mysqli_query($conn, $query);
-
-						echo "<div class=\"row\"><table class=\"table\">";
-						echo "<tr><th>ID</th><th>Name</th><th>Type</th><th>Price</th><th>Stock</th><th>Description</th></tr>";
-
-						while($row = mysqli_fetch_array($result)) {
-								echo "<tr><td>", $row["itemID"], "</td><td>", $row["itemName"], "</td><td>", $row["itemType"], "</td><td>", $row["itemPrice"], "</td><td>", $row["itemStock"], "</td><td>", $row["itemDescription"], "</td><td><a href=\"delete_item.php?id=", $row['itemID'], "\">Delete</a></td></tr>";
-						}
-
-						echo"</table></div>";
-					?>
+					<div class="table-responsive">
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th scope="col" id="itemID">Item ID</th>
+									<th scope="col" id="itemName">Item Name</th>
+									<th scope="col" id="itemType">Item Type</th>
+									<th scope="col" id="itemPrice">Item Price</th>
+									<th scope="col" id="saleStatus">Item Stock</th>
+									<th scope="col" id="itemDesc">Item Description</th>
+									<th scope="col" id="itemManage">Manage</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+									while($row = mysqli_fetch_array($result))
+									{
+										echo "<tr><td>", $row["itemID"], "</td><td>", $row["itemName"], "</td><td>", $row["itemType"], "</td><td>", $row["itemPrice"], "</td><td>", $row["itemStock"], "</td><td>", $row["itemDescription"], "</td><td><a href=\"delete_item.php?id=", $row['itemID'], "\">Delete</a></td></tr>";
+									}
+								?>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
