@@ -86,7 +86,17 @@
 								<?php
 									while($row = mysqli_fetch_array($result))
 									{
-										echo "<tr><td>", $row["saleID"], "</td><td>", $row["itemID"], "</td><td>", $row["saleDate"], "</td><td>", $row["saleQuantity"], "</td><td>", $row["saleCost"], "</td><td>", $row["saleStatus"], "</td><td><a href=\"delete_sale.php?id=", $row['saleID'], "\">Delete</a></td></tr>";
+										echo "<tr><td>", $row["saleID"], 
+											 "</td><td>", $row["itemID"], 
+											 "</td><td>", $row["saleDate"], 
+											 "</td><td>", $row["saleQuantity"], 
+											 "</td><td>", $row["saleCost"], 
+											 "</td><td>", $row["saleStatus"], 
+											 "</td><td>
+											 	<a href=\"edit_sale.php?id=", $row['saleID'], "\" onclick=\"return confirm('Are you sure?'); \">Edit</a>
+											 	&emsp;
+											 	<a href=\"delete_sale.php?id=", $row['saleID'], "\" onclick=\"return confirm('Are you sure?'); \">Delete</a>
+											 </td></tr>";
 									}
 								?>
 							</tbody>

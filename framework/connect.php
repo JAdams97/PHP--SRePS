@@ -1,6 +1,6 @@
 <?php
 	$host = "localhost";
-	$user = "admin";
-	$pwd = "phpadmin2017";
+	$user = "root";
+	$pwd = "";
 	$sql_db = "people_health_pharmacy"
 ?>
