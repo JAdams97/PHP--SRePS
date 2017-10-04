@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="phpApp">
 	<head>
 		<title>People Health Pharmacy | Login</title>
 		<meta charset="utf-8" />
@@ -41,6 +41,7 @@
 		</div>
 		<!-- AngularJS v1.6.3 -->
 		<script src="js/angular.min.js"></script>
+		<script src="js/php_app.js"></script>
 		<!-- jQuery - required for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<!-- Bootstrap plug-in file -->
