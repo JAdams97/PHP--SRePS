@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="phpApp">
 	<head>
 		<title>People Health Pharmacy | Add Sale</title>
 		<meta charset="utf-8" />
@@ -12,41 +12,47 @@
 		<script src="js/html5shiv.min.js"></script>
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
+		<!-- styles -->
+		<link href="css/style.css" rel="stylesheet" />
 	</head>
 	<body>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="main.php">
+						<img alt="brand logo" src="images/logo.png"/>
+					</a>
+				</div>
+				<div class="nav navbar-nav">
+					<h1 class="navbar-text">People Health Pharmacy</h1>
+				</div>
+				<ul class="nav navbar-nav navbar-left">
+					<li><a href="main.php">Home</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Items<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="items.php">Items</a></li>
+							<li><a href="items-add.php">Add Item</a></li>
+						</ul>
+					</li>	
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sales<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="sales.php">Sales</a></li>
+							<li class="active"><a href="#">Add Sale</a></li>
+						</ul>
+					</li>
+					<li><a href="report.php">Report</a></li>
+					<li><a href="forecast.php">Forecasting</a></li>
+				</ul>
+				<form class="navbar-form navbar-right" action="index.php">
+					<button class="btn" type="submit">Logout</button>
+				</form>
+			</div>
+		</nav>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-10">
-					<h1>Company Logo</h1>
-					<!-- style the company logo to be center of page?-->
-				</div>
-				<br>
-				<div class="col-sm-2">
-					<form action="index.php">
-						<button type="submit">Logout</button>
-					</form>
-
-				</div>
-			</div>
-			<div class="row">
-				<!-- For now using <br> tag to seperate each section. Use CSS style instead  -->
-				<br><br>
-				<div class="col-sm-3">
-				<!-- This will be the dashboard which contains links to the other pages -->
-				<!-- will be styled -->
-					<div class="dashboard">
-						<strong>Dashboard (aka nav bar)</strong>
-						<ul>
-							<li><a href="main.php">Home</a></li>
-							<li><a href="items.php">Items</a></li>
-							<li><a href="sales.php">Sales</a></li>
-							<li><a href="report.php">Report</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-sm-8">
-					<strong>Middle Content: Sale screen, add/delete/modify sales record</strong>
-					<hr>
+				<div class="col-lg-12">
 					<form id="saleAddForm" method="post" action="add_sale.php">
 						<p>
 							<label for="saleItem">Item ID:</label>
@@ -66,8 +72,15 @@
 					</form>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<hr/>
+					<footer>
+						<p>&copy; People Health Pharmacy Inc., 2017</p>
+					</footer>
+				</div>
+			</div>
 		</div>
-
 		<!-- AngularJS v1.6.3 -->
 		<script src="js/angular.min.js"></script>
 		<!-- jQuery - required for Bootstrap's JavaScript plugins) -->
