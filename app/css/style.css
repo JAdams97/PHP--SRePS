@@ -3,6 +3,11 @@
 	margin: 0 auto;
 }
 
+.display-1
+{
+	font-size: 4em;
+}
+
 .wrapper
 {
 	display: table;
@@ -10,6 +15,27 @@
 	padding-top: 1em;
 	width: auto;
 }
+
+.radio-type
+{
+	float: left;
+	padding:1em;
+}
+
+.label-title
+{
+	font-weight: bold;
+}
+
+label
+{
+	font-weight: normal;
+}
+
+/*td a
+{
+	padding-left: 0.5em;
+}*/
 
 #login
 {
@@ -26,6 +52,18 @@
 .content-body
 {
 	padding-top: 96px;
+}
+
+footer a
+{
+	float:right;
+	padding: 0 2em;
+}
+
+footer p
+{
+	float: left;
+	padding-left: 2em;
 }
 
 h1

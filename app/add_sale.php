@@ -4,23 +4,16 @@
 		<title>People Health Pharmacy | Add Sale</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<!-- Bootstrap -->
+		<!-- Stylesheets -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" />
-		<!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		<script src="js/html5shiv.min.js"></script>
-		<script src="js/respond.min.js"></script>
-		<![endif]-->
-		<!-- styles -->
 		<link href="css/style.css" rel="stylesheet" />
 	</head>
-	<body>
+	<body class="content-body">
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="main.php">
-						<img alt="brand logo" src="images/logo.png"/>
+					<a class="navbar-brand" href="main.html">
+						<img alt="brand logo" src="img/logo.png"/>
 					</a>
 				</div>
 				<div class="nav navbar-nav">
@@ -32,20 +25,20 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Items<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="items.php">Items</a></li>
-							<li><a href="items-add.php">Add Item</a></li>
+							<li><a href="items-add.html">Add Item</a></li>
 						</ul>
 					</li>	
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sales<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="sales.php">Sales</a></li>
-							<li><a href="sales-add.php">Add Sale</a></li>
+							<li><a href="sales-add.html">Add Sale</a></li>
 						</ul>
 					</li>
 					<li><a href="report.php">Report</a></li>
 					<li><a href="forecast.php">Forecasting</a></li>
 				</ul>
-				<form class="navbar-form navbar-right" action="index.php">
+				<form class="navbar-form navbar-right" action="index.html">
 					<button class="btn" type="submit">Logout</button>
 				</form>
 			</div>
@@ -55,7 +48,7 @@
 				<div class="col-lg-12">
 					<?php
 						require_once ("connect.php");
-						$connect = @mysqli_connect($host, $user, $pwd, $sql_db);
+						$connect = mysqli_connect($host, $user, $pass, $sql_db);
 
 						if ($connect)
 						{
@@ -103,13 +96,13 @@
 								if ($result)
 								{
 									echo "<p>Successfully added a sale!</p>";
-									echo "<p><a href=\"sales-add.php\">Return to add sales form</a></p>";
+									echo "<p><a href=\"sales-add.html\">Return to add sales form</a></p>";
 								}
 								else
 								{
 									echo "<p>Something is wrong with ", $query, "</p>";
 									echo "<p>Query was not added, please try again</p>";
-									echo "<p><a href=\"items-add.php\">Return to add items form</a></p>";
+									echo "<p><a href=\"sales-add.html\">Return to add items form</a></p>";
 								}
 							}
 						}
@@ -127,12 +120,12 @@
 					<hr/>
 					<footer>
 						<p>&copy; People Health Pharmacy Inc., 2017</p>
+						<a href="aboutus.html">About Us</a>
+						<a href="contactus.html">Contact Us</a>
 					</footer>
 				</div>
 			</div>
 		</div>
-		<!-- AngularJS v1.6.3 -->
-		<script src="js/angular.min.js"></script>
 		<!-- jQuery - required for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<!-- Bootstrap plug-in file -->
