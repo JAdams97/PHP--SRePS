@@ -1,6 +1,6 @@
 <?php
 	require_once ("connect.php");
-	$conn = @mysqli_connect($host, $user, $pass, $sql_db);
+	$conn = mysqli_connect($host, $user, $pass, $sql_db);
 
 	if (!$conn)
 	{
@@ -10,6 +10,11 @@
 	$sql_table = "items";
 	$query = "SELECT * FROM $sql_table WHERE itemStatus = 1";
 	$result = mysqli_query($conn, $query);
+
+	if (!$result)
+	{
+		die(mysqli_error($conn));
+	}
 ?>
 
 <!DOCTYPE html>
@@ -39,14 +44,14 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Items<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li class="active"><a href="#">Items</a></li>
-							<li><a href="items-add.php">Add Item</a></li>
+							<li><a href="items-add.html">Add Item</a></li>
 						</ul>
 					</li>	
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sales<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="sales.php">Sales</a></li>
-							<li><a href="sales-add.php">Add Sale</a></li>
+							<li><a href="sales-add.html">Add Sale</a></li>
 						</ul>
 					</li>
 					<li><a href="report.php">Report</a></li>
@@ -79,7 +84,19 @@
 									{
 										while($row = mysqli_fetch_assoc($result))
 										{
-											echo "<tr><td>", $row["itemID"], "</td><td>", $row["itemName"], "</td><td>", $row["itemType"], "</td><td>", $row["itemPrice"], "</td><td>", $row["itemStock"], "</td><td>", $row["itemDescription"], "</td><td><a href=\"delete_item.php?id=", $row['itemID'], "\">Delete</a></td></tr>";
+											echo
+											"<tr>
+												<td>", $row['itemID'], "</td>
+												<td>", $row['itemName'], "</td>
+												<td>", $row['itemType'], "</td>
+												<td>", $row['itemPrice'], "</td>
+												<td>", $row['itemStock'], "</td>
+												<td>", $row['itemDescription'], "</td>
+												<td>
+													<a href=\"modify_item.php?id=", $row['itemID'], "\">Modify</a>
+													<a href=\"delete_item.php?id=", $row['itemID'], "\">Delete</a>
+												</td>
+											</tr>";
 										}
 									}
 									else
@@ -99,6 +116,8 @@
 					<hr/>
 					<footer>
 						<p>&copy; People Health Pharmacy Inc., 2017</p>
+						<a href="aboutus.html">About Us</a>
+						<a href="contactus.html">Contact Us</a>
 					</footer>
 				</div>
 			</div>
