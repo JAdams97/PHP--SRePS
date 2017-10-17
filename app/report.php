@@ -36,7 +36,7 @@
 						</ul>
 					</li>
 					<li class="active"><a href="#">Report</a></li>
-					<li><a href="forecast.html">Forecasting</a></li>
+					<li><a href="forecast.php">Forecasting</a></li>
 				</ul>
 				<form class="navbar-form navbar-right" action="index.html">
 					<button class="btn" type="submit">Logout</button>

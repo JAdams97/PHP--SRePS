@@ -91,8 +91,9 @@
 												<td>", $row['saleQuantity'], "</td>
 												<td>", $row['saleCost'], "</td>
 												<td>
-													<a href=\"modify.php?id=", $row['itemID'], "\">Modify</button>
-													<a href=\"delete_item.php?id=", $row['itemID'], "\">Delete</a>
+													<a href=\"modify_sale.php?id=", $row['saleID'], "\">Modify</button></a>
+													&emsp;
+													<a href=\"delete_sale.php?id=", $row['saleID'], "\">Delete</a>
 												</td>
 											</tr>";
 										}

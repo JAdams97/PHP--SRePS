@@ -113,7 +113,7 @@
 								{
 									echo "<p>Something is wrong with ", $query, "</p>";
 									echo "<p>Query was not added, please try again</p>";
-									echo "<p><a href=\"items-add.php\">Return to add items form</a></p>";
+									echo "<p><a href=\"items-add.html\">Return to add items form</a></p>";
 								}
 							}
 						}

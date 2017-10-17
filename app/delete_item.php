@@ -20,7 +20,7 @@
 
 		<?php
 				require_once ("connect.php");
-				$connect = @mysqli_connect($host, $user, $pwd, $sql_db);
+				$connect = @mysqli_connect($host, $user, $pass, $sql_db);
 
 				if ($connect)
 				{

@@ -94,6 +94,7 @@
 												<td>", $row['itemDescription'], "</td>
 												<td>
 													<a href=\"modify_item.php?id=", $row['itemID'], "\">Modify</a>
+													&emsp;
 													<a href=\"delete_item.php?id=", $row['itemID'], "\">Delete</a>
 												</td>
 											</tr>";
